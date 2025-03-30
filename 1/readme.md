@@ -2,12 +2,13 @@
 
 ```mermaid
   flowchart LR
-    main.rb --> Calculator
-    main.rb --> InputParser
+    App --> Calculator
+    App --> InputParser
     InputParser --> Item
     Item --> Category
     Calculator --> BasicSalesTax
     Calculator --> ImportDuty
     Calculator --> Receipt
-    main.rb --> Printer
+    App --> Printer
+    main.rb --> App
 ```
