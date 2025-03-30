@@ -9,12 +9,15 @@ describe Calculator do
   let(:items) { [item1, item2] }
 
   it "calculates total prices for each item" do
-    calculator = described_class.new(items)
-    expect(calculator.call).to eq([20, 45])
+    receipt = described_class.new(items).call
+    expect(receipt.items.map(&:total_price)).to eq([20, 45])
+    expect(receipt.total).to eq(65)
+    expect(receipt.sales_taxes).to eq(0)
   end
 
   it "handles an empty item list" do
-    calculator = described_class.new([])
-    expect(calculator.call).to eq([])
+    receipt = described_class.new([]).call
+    expect(receipt.total).to eq(0)
+    expect(receipt.sales_taxes).to eq(0)
   end
 end
