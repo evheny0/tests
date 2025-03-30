@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class Receipt
-  Item = Struct.new(:name, :total_price, :tax, :quantity)
+  Item = Struct.new(:name, :price, :tax, :quantity) do
+    def price_with_tax
+      price + tax
+    end
+  end
 
   attr_reader :items
 
@@ -9,12 +13,12 @@ class Receipt
     @items = []
   end
 
-  def add_item(name:, total_price:, tax:, quantity:)
-    @items << Item.new(name, total_price, tax, quantity)
+  def add_item(name:, price:, tax:, quantity:)
+    @items << Item.new(name, price, tax, quantity)
   end
 
   def total
-    @items.sum(0, &:total_price)
+    @items.sum(0, &:price_with_tax)
   end
 
   def sales_taxes
