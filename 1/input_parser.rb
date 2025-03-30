@@ -4,6 +4,8 @@ require "bigdecimal"
 require_relative "item"
 
 class InputParser
+  LINE_REGEX = /(\d+)\s+(.+)\s+at\s+(\d+\.\d+)/
+  
   def self.from_file(file_path)
     new(File.read(file_path))
   end
@@ -14,7 +16,7 @@ class InputParser
 
   def parse
     @input.split("\n").map do |line|
-      if match = line.match(/(\d+)\s+(.+)\s+at\s+(\d+\.\d+)/)
+      if match = line.match(LINE_REGEX)
         quantity = match[1].to_i
         name = match[2]
         price = BigDecimal(match[3])
