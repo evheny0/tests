@@ -16,7 +16,7 @@ I assumed the input categorization based on the input provided. So the rules I m
  - the `medical` category is any item with "pill" word in the name
  - `imported` goods have "imported" word in the name
 
-I assumed that input consists of newline separated lines with the structure of "{quantity} {name} at {price}". Any other input will fail with an exception.
+I assumed that input consists of newline separated lines with the structure of `{quantity} {name} at {price}`. Any other input will fail with an exception.
 
 ## Solution Class Diagram
 
