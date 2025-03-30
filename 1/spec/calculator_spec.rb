@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative "../calculator"
-require_relative "../item"
+require_relative "../lib/calculator"
+require_relative "../lib/item"
 
 describe Calculator do
   let(:item1) { Item.new(name: "book", price: 10, quantity: 2) }

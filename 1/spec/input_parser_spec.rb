@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "../input_parser"
+require_relative "../lib/input_parser"
 
 RSpec.describe InputParser do
   describe ".from_file" do
